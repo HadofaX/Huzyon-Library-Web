@@ -80,3 +80,15 @@ Make sure the database and its required tables have been created successfully be
 
 Developed as a learning project using ASP.NET Core MVC and SQL Server.
 
+
+## Screenshots⬇️
+
+### Dashboard
+![Dashboard](Screenshot%20I.png)
+
+### Products by Category
+![Products by Category](Screenshot%20II.png)
+
+### Database
+![Database](Screenshot%20III.png)
+
