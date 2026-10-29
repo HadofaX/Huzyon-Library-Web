@@ -1,0 +1,60 @@
+﻿@model List<Huzyon.Library.Models.ProductCategory>
+
+@{
+    ViewData["Title"] = "Product Categories";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <div>
+        <h2 class="mb-1">🧩 Product Categories</h2>
+        <p class="text-muted mb-0">
+            View the relationships between products and categories.
+        </p>
+    </div>
+
+    
+    <span class="badge bg-primary fs-6">
+        Total Records: @(Model?.Count ?? 0)
+    </span>
+    
+
+</div>
+
+<div class="card shadow-sm">
+    <div class="card-body p-0">
+        <div class="table-responsive">
+            @if (Model != null && Model.Any())
+            {
+                <table class="table table-striped table-hover table-bordered mb-0">
+                    <thead class="table-dark">
+                        <tr>
+                            <th scope="col">Product ID</th>
+                            <th scope="col">Category ID</th>
+                        </tr>
+                    </thead>
+
+                    
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.ProductID</td>
+                                <td>@item.CategoryID</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+            else
+            {
+                <div class="text-center text-muted py-4">
+                    No product categories found.
+                </div>
+            }
+        </div>
+    </div>
+    
+
+</div>
+
+

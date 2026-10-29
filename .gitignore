@@ -1,0 +1,26 @@
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Build output
+**/bin/
+**/obj/
+
+# NuGet
+*.nupkg
+packages/
+
+# Logs
+*.log
+
+# Local configuration and secrets
+appsettings.Development.json
+secrets.json
+
+# Database files
+*.mdf
+*.ldf
+*.bak

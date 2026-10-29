@@ -1,0 +1,192 @@
+﻿@model Huzyon.Web.Models.DashboardViewModel
+@using System.Linq
+
+@{
+    ViewData["Title"] = "Home";
+}
+
+<div class="text-center home-page">
+    <h1 class="display-4">
+        Welcome to Huzyon <span class="wave">👋</span>
+    </h1>
+
+    
+    <p class="lead">
+        A Simple Library Management System
+    </p>
+
+    <p class="home-description">
+        This project was developed using ASP.NET Core MVC and SQL Server.
+        It demonstrates how to display and manage related database tables
+        through a web application.
+    </p>
+    
+
+</div>
+
+<hr class="my-4" />
+
+<h3 class="mb-3">Dashboard Overview</h3>
+
+<div class="row g-3 mb-4">
+    <div class="col-12 col-sm-6 col-lg-3">
+        <div class="card dashboard-card card-products shadow-sm h-100">
+            <div class="card-body">
+                <h6 class="text-muted">Total Products</h6>
+                <h2 class="mb-0">@Model.TotalProducts</h2>
+                <a href="/Product" class="small">View Products</a>
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="col-12 col-sm-6 col-lg-3">
+        <div class="card dashboard-card card-customers shadow-sm h-100">
+            <div class="card-body">
+                <h6 class="text-muted">Total Customers</h6>
+                <h2 class="mb-0">@Model.TotalCustomers</h2>
+                <a href="/Customer" class="small">View Customers</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12 col-sm-6 col-lg-3">
+        <div class="card dashboard-card card-orders shadow-sm h-100">
+            <div class="card-body">
+                <h6 class="text-muted">Total Orders</h6>
+                <h2 class="mb-0">@Model.TotalOrders</h2>
+                <a href="/Order" class="small">View Orders</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12 col-sm-6 col-lg-3">
+        <div class="card dashboard-card card-categories shadow-sm h-100">
+            <div class="card-body">
+                <h6 class="text-muted">Total Categories</h6>
+                <h2 class="mb-0">@Model.TotalCategories</h2>
+                <a href="/Category" class="small">View Categories</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12 col-sm-6 col-lg-4">
+        <div class="card dashboard-card card-favorites shadow-sm h-100">
+            <div class="card-body">
+                <h6 class="text-muted">Total Favorites</h6>
+                <h2 class="mb-0">@Model.TotalFavorites</h2>
+                <a href="/Favorite" class="small">View Favorites</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12 col-sm-6 col-lg-4">
+        <div class="card dashboard-card card-details shadow-sm h-100">
+            <div class="card-body">
+                <h6 class="text-muted">Order Details</h6>
+                <h2 class="mb-0">@Model.TotalOrderDetails</h2>
+                <a href="/OrderDetails" class="small">View Order Details</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12 col-sm-6 col-lg-4">
+        <div class="card dashboard-card card-relations shadow-sm h-100">
+            <div class="card-body">
+                <h6 class="text-muted">Product Categories</h6>
+                <h2 class="mb-0">@Model.TotalProductCategories</h2>
+                <a href="/ProductCategory" class="small">View Product Categories</a>
+            </div>
+        </div>
+    </div>
+    
+
+</div>
+
+<hr class="my-4" />
+
+<h3 class="mb-3">Products by Category</h3>
+
+<div class="card shadow-sm mb-4">
+    <div class="card-body">
+        <canvas id="categoryChart"></canvas>
+    </div>
+</div>
+
+<hr class="my-4" />
+
+<h3 class="mb-3">Explore the System</h3>
+
+<ul class="list-unstyled">
+    <li class="mb-2"><a href="/Product">🛒 Products</a></li>
+    <li class="mb-2"><a href="/Customer">👤 Customers</a></li>
+    <li class="mb-2"><a href="/Order">📦 Orders</a></li>
+    <li class="mb-2"><a href="/Favorite">❤️ Favorites</a></li>
+    <li class="mb-2"><a href="/Category">📂 Categories</a></li>
+    <li class="mb-2"><a href="/OrderDetails">🔍 Order Details</a></li>
+    <li class="mb-2"><a href="/ProductCategory">🧩 Product Categories</a></li>
+</ul>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+    const categoryLabels = @Html.Raw(
+                System.Text.Json.JsonSerializer.Serialize(
+                        Model.ProductsByCategory.Select(x => x.CategoryName)
+                )
+        );
+
+    const categoryData = @Html.Raw(
+                System.Text.Json.JsonSerializer.Serialize(
+                        Model.ProductsByCategory.Select(x => x.ProductCount)
+                )
+        );
+
+    const chartContext = document.getElementById('categoryChart');
+
+    new Chart(chartContext, {
+        type: 'bar',
+        data: {
+            labels: categoryLabels,
+                datasets: [{
+        label: 'Number of Products',
+        data: categoryData,
+        backgroundColor: [
+            'rgba(37, 99, 235, 0.75)',
+            'rgba(5, 150, 105, 0.75)',
+            'rgba(234, 88, 12, 0.75)',
+            'rgba(219, 39, 119, 0.75)',
+            'rgba(124, 58, 237, 0.75)',
+            'rgba(8, 145, 178, 0.75)',
+            'rgba(202, 138, 4, 0.75)'
+        ],
+        borderColor: [
+            '#2563eb',
+            '#059669',
+            '#ea580c',
+            '#db2777',
+            '#7c3aed',
+            '#0891b2',
+            '#ca8a04'
+        ],
+        borderWidth: 2,
+        borderRadius: 6,
+        maxBarThickness: 70
+    }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        precision: 0
+                    }
+                }
+            }
+        }
+    });
+</script>
+
+
+

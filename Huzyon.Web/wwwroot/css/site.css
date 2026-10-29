@@ -1,0 +1,210 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+/* Navbar improvements */
+.navbar {
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+
+.navbar-brand {
+    font-size: 1.4rem;
+    letter-spacing: 0.5px;
+}
+
+.navbar .nav-link {
+    color: #e0e0e0;
+    transition: color 0.2s ease-in-out;
+}
+
+    .navbar .nav-link:hover {
+        color: #ffffff;
+    }
+
+    .navbar .nav-link:focus {
+        color: #ffffff;
+    }
+
+/* Page spacing */
+main {
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+/* Waving hand animation */
+.wave {
+    display: inline-block;
+    transform-origin: 70% 70%;
+    animation: wave-animation 2s infinite;
+}
+
+@keyframes wave-animation {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    10% {
+        transform: rotate(14deg);
+    }
+
+    20% {
+        transform: rotate(-8deg);
+    }
+
+    30% {
+        transform: rotate(14deg);
+    }
+
+    40% {
+        transform: rotate(-4deg);
+    }
+
+    50% {
+        transform: rotate(10deg);
+    }
+
+    60%, 100% {
+        transform: rotate(0deg);
+    }
+}
+
+/* Dashboard cards */
+.dashboard-card {
+    border: none;
+    border-radius: 16px;
+    overflow: hidden;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    color: #ffffff;
+}
+
+    .dashboard-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 24px rgba(0, 0, 0, 0.15) !important;
+    }
+
+    .dashboard-card .card-body {
+        padding: 22px;
+    }
+
+    .dashboard-card h6 {
+        color: rgba(255, 255, 255, 0.9) !important;
+        font-size: 0.95rem;
+        font-weight: 600;
+    }
+
+    .dashboard-card h2 {
+        margin: 12px 0 !important;
+        font-size: 2.2rem;
+        font-weight: 700;
+    }
+
+    .dashboard-card a {
+        color: #ffffff;
+        text-decoration: none;
+        font-weight: 600;
+        display: inline-block;
+        margin-top: 8px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+    }
+
+        .dashboard-card a:hover {
+            border-bottom-color: #ffffff;
+            opacity: 0.85;
+        }
+
+/* Individual card colors */
+.card-products {
+    background: linear-gradient(135deg, #2563eb, #60a5fa);
+}
+
+.card-customers {
+    background: linear-gradient(135deg, #059669, #34d399);
+}
+
+.card-orders {
+    background: linear-gradient(135deg, #7c3aed, #a78bfa);
+}
+
+.card-categories {
+    background: linear-gradient(135deg, #ea580c, #fb923c);
+}
+
+.card-favorites {
+    background: linear-gradient(135deg, #db2777, #f472b6);
+}
+
+.card-details {
+    background: linear-gradient(135deg, #0f766e, #2dd4bf);
+}
+
+.card-relations {
+    background: linear-gradient(135deg, #475569, #94a3b8);
+}
+
+/* Dashboard section headings */
+h3 {
+    font-weight: 700;
+    color: #1e293b;
+    margin-top: 12px;
+}
+
+/* Chart container */
+#categoryChart {
+    max-width: 100%;
+}
+
+.card:has(#categoryChart) {
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 12px;
+    background: linear-gradient(180deg, #ffffff, #f8fafc);
+}
+
+/* Explore the System links */
+.list-unstyled a {
+    display: inline-block;
+    padding: 8px 14px;
+    border-radius: 8px;
+    color: #2563eb;
+    text-decoration: none;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+    .list-unstyled a:hover {
+        background-color: #eff6ff;
+        transform: translateX(4px);
+    }
+
+/* Responsive spacing */
+@media (max-width: 576px) {
+    .dashboard-card .card-body {
+        padding: 18px;
+    }
+
+    ```
+    .dashboard-card h2 {
+        font-size: 1.8rem;
+    }
+
+    ```
+}
