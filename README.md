@@ -1,4 +1,4 @@
-# Huzyon Library
+# Huzyon Library Web
 
 A Library Management System built with ASP.NET Core MVC and SQL Server.
 
