@@ -84,11 +84,11 @@ Developed as a learning project using ASP.NET Core MVC and SQL Server.
 ## Screenshots⬇️
 
 ### Dashboard
-![Dashboard](Screenshot%20I.png)
+![Dashboard](ScreenshotI.png)
 
 ### Products by Category
-![Products by Category](Screenshot%20II.png)
+![Products by Category](ScreenshotII.png)
 
 ### Database
-![Database](Screenshot%20III.png)
+![Database](ScreenshotIII.png)
 
